@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        trueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkAnswerCorrectness(true);
+            }
+        });
+        falseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkAnswerCorrectness(false);
+            }
+        });
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentIndex = (currentIndex + 1) % questions.length;
+                showCurrentQuestion();
+            }
+        });
     }
 
     private void checkAnswerCorrectness(boolean userAnswer) {
@@ -34,5 +55,10 @@ public class MainActivity extends AppCompatActivity {
         else
             messageId = R.string.incorrect_answer;
         Toast.makeText(MainActivity.this, messageId, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showCurrentQuestion() {
+        int questionId = questions[currentIndex].getQuestionId();
+        questionTextView.setText(questionId);
     }
 }
