@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        questionTextView = findViewById(R.id.question_text_view);
+        trueBtn = findViewById(R.id.true_button);
+        falseBtn = findViewById(R.id.false_button);
+        nextBtn = findViewById(R.id.next_button);
         trueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currentIndex = (currentIndex + 1) % questions.length;
-                showCurrentQuestion();
+                setNextQuestion();
             }
         });
+        setNextQuestion();
     }
 
     private void checkAnswerCorrectness(boolean userAnswer) {
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, messageId, Toast.LENGTH_SHORT).show();
     }
 
-    private void showCurrentQuestion() {
+    private void setNextQuestion() {
         int questionId = questions[currentIndex].getQuestionId();
         questionTextView.setText(questionId);
     }
