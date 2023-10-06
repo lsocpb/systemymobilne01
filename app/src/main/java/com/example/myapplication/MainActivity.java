@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
         trueBtn = findViewById(R.id.true_button);
         falseBtn = findViewById(R.id.false_button);
         nextBtn = findViewById(R.id.next_button);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Quiz");
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+
         trueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,4 +73,5 @@ public class MainActivity extends AppCompatActivity {
         int questionId = questions[currentIndex].getQuestionId();
         questionTextView.setText(questionId);
     }
+
 }
