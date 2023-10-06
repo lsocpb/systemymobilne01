@@ -14,8 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button trueBtn, falseBtn, nextBtn;
     private TextView questionTextView;
-
+    private TextView scoreTextView;
     private int currentIndex = 0;
+    private int score = 0;
     private Question[] questions = new Question[] {
             new Question(R.string.q_activity, true),
             new Question(R.string.q_version, false),
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle("Quiz");
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+        scoreTextView = findViewById(R.id.score_text_view);
 
         trueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,16 +64,20 @@ public class MainActivity extends AppCompatActivity {
     private void checkAnswerCorrectness(boolean userAnswer) {
         boolean correctAnswer = questions[currentIndex].isTrueAnswer();
         int messageId;
-        if (userAnswer == correctAnswer)
+        if (userAnswer == correctAnswer) {
             messageId = R.string.correct_answer;
-        else
+            score++;
+        }
+        else {
             messageId = R.string.incorrect_answer;
+        }
         Toast.makeText(MainActivity.this, messageId, Toast.LENGTH_SHORT).show();
     }
 
     private void setNextQuestion() {
         int questionId = questions[currentIndex].getQuestionId();
         questionTextView.setText(questionId);
+        scoreTextView.setText("Score: " + score);
     }
 
 }
