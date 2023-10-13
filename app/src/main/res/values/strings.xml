@@ -14,5 +14,6 @@
     <string name="score_text_view">Wynik</string>
     <string name="are_you_sure">Czy na pewno chcesz zobaczyc odpowiedz?</string>
     <string name="button_show_answer">Pokaz odpowiedz</string>
+    <string name="answer_was_shown" >Odpowiedz zostala pokazana</string>
 
 </resources>
