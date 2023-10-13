@@ -3,6 +3,7 @@
     <string name="btn_true">Prawda</string>
     <string name="btn_false">Falsz</string>
     <string name="btn_nxt">Next</string>
+    <string name="btn_prompt">Podpowiedz</string>
     <string name="q_activity">Activity jest jednym z komponentow aplikacji</string>
     <string name="q_version">Android 8 jest najnowsza wersja systemu Android</string>
     <string name="q_listener">Aplikacje dla systemu Android sa sterowane zdarzeniowo</string>
@@ -11,4 +12,7 @@
     <string name="correct_answer">Poprawna odpowiedz!</string>
     <string name="incorrect_answer">Niepoprawna odpowiedz!</string>
     <string name="score_text_view">Wynik</string>
+    <string name="are_you_sure">Czy na pewno chcesz zobaczyc odpowiedz?</string>
+    <string name="button_show_answer">Pokaz odpowiedz</string>
+
 </resources>
